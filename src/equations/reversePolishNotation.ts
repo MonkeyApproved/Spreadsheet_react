@@ -26,6 +26,7 @@ export default function getRPN(tokens: Token[]): RpnToken[] {
 
     return filterTokens([...syntaxStack, ...outputQueue.reverse()]);
   } catch (error) {
+    console.warn(error);
     return [];
   }
 }

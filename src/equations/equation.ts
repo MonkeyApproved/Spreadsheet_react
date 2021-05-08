@@ -14,6 +14,7 @@ export interface Equation {
 export default function getEquation(input: string): Equation {
   const tokens = getTokens(input);
   const error = hasError(tokens);
+  if (error) return { tokens, error, input, result: undefined, rpn: [] };
   const rpn = getRPN(tokens);
   const result = computeResult(rpn);
   return { tokens, error, input, result, rpn };
